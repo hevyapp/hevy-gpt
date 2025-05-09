@@ -3,20 +3,24 @@
 This repo holds the configuration for [HevyGPT](https://chatgpt.com/g/g-681ca809463c8191b57db9900b9926cc-hevygpt). Trying to improve a Custom GPT is finicky to say the least. This repo is meant to be a “master” copy of the last stable configuration. This way we always have a state to go back to if we break something while tinkering with the configs.
 
 ## Learnings
-* Passing the exercise list as a file seems to break the GPTs ability to make API calls. Having the exercise list in the description fixed that.
-* The API Key has to be passed as a url query parameter. ChatGPT isn’t able to insert variable values into HTTP headers.
-* If the GPT is doing weird things with the API you can constrain its behaviour by modifying the OpenAPI spec. For example it was passing a superset_id of 0 for all exercises when creating a routine. To fix that I modified the spec to use type `enum: [null]`.
-* It seems to perform better if there are fewer exercises to choose from. I've reduced the exercise library to just 100 exercises.
+
+- Passing the exercise list as a file seems to break the GPTs ability to make API calls. Having the exercise list in the description fixed that.
+- The API Key has to be passed as a url query parameter. ChatGPT isn’t able to insert variable values into HTTP headers.
+- If the GPT is doing weird things with the API you can constrain its behaviour by modifying the OpenAPI spec. For example it was passing a superset_id of 0 for all exercises when creating a routine. To fix that I modified the spec to use type `enum: [null]`.
+- It seems to perform better if there are fewer exercises to choose from. I've reduced the exercise library to just 100 exercises.
 
 ## Configuration
 
 #### Name
+
 HevyGPT
 
 #### Description
+
 HevyGPT can access your Hevy workouts and routines.
 
 #### Instructions
+
 Ask the user to provide their Hevy API Key at the start. Use it as the api-key http header for all requests to api.hevyapp.com.
 Use the following exercise templates when creating routines:
 
@@ -445,10 +449,11 @@ Use the following exercise templates when creating routines:
 
 #### Conversation starters
 
-* What did I lift the last time I did bench press?
-* I want to gain muscle and build strength! Build be a 4 day split
+- What did I lift the last time I did bench press?
+- I want to gain muscle and build strength! Build be a 4 day split
 
 #### Capabilities
+
 - [x] Web search
 - [ ] Canvas
 - [ ] 4o Image Generation
@@ -457,9 +462,11 @@ Use the following exercise templates when creating routines:
 #### Action - api.hevyapp.com
 
 #### Authentication
+
 None
 
 #### Schema
+
 ```
 {
   "openapi": "3.1.0",
@@ -549,61 +556,6 @@ None
           }
         }
       },
-      "post": {
-        "summary": "Create a new workout",
-        "tags": [
-          "Workouts"
-        ],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "api-key",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PostWorkoutsRequestBody"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "The workout was successfully created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Workout"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request body",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "description": "Error message"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     },
     "/v1/workouts/count": {
       "get": {
@@ -743,67 +695,6 @@ None
           }
         }
       },
-      "put": {
-        "summary": "Update an existing workout",
-        "tags": [
-          "Workouts"
-        ],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "api-key",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "workoutId",
-            "description": "The id of the workout",
-            "required": true
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PostWorkoutsRequestBody"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The workout was successfully updated",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Workout"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request body",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "description": "Error message"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     },
     "/v1/routines": {
       "get": {
@@ -1009,83 +900,6 @@ None
           }
         }
       },
-      "put": {
-        "summary": "Update an existing routine",
-        "tags": [
-          "Routines"
-        ],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "api-key",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "routineId",
-            "description": "The id of the routine",
-            "required": true
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PutRoutinesRequestBody"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The routine was successfully updated",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Routine"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request body",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "description": "Error message"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Routine doesn't exist or doesn't belong to the user",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "description": "Error message"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     },
     "/v1/exercise_templates": {
       "get": {
@@ -1203,15 +1017,16 @@ None
         "tags": [
           "RoutineFolders"
         ],
+        "operationId": "get-routine-folders",
         "parameters": [
           {
-            "in": "header",
-            "name": "api-key",
+            "in": "query",
+            "name": "apiKey",
+            "required": true,
+            "description": "Your Hevy API key. You can get one at https://hevy.com/settings?developer.",
             "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
+              "type": "string"
+            }
           },
           {
             "in": "query",
@@ -1271,13 +1086,23 @@ None
         "tags": [
           "RoutineFolders"
         ],
-        "operationId": "get-workouts",
+        "operationId": "post-routine-folder",
         "security": [
           {
             "ApiKeyAuth": []
           }
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "apiKey",
+            "required": true,
+            "description": "Your Hevy API key. You can get one at https://hevy.com/settings?developer.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -2131,4 +1956,3 @@ None
   "tags": []
 }
 ```
-
