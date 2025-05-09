@@ -9,6 +9,11 @@ This repo holds the configuration for [HevyGPT](https://chatgpt.com/g/g-681ca809
 - If the GPT is doing weird things with the API you can constrain its behaviour by modifying the OpenAPI spec. For example it was passing a superset_id of 0 for all exercises when creating a routine. To fix that I modified the spec to use type `enum: [null]`.
 - It seems to perform better if there are fewer exercises to choose from. I've reduced the exercise library to just 100 exercises.
 
+## Test Prompts
+
+- I'd like to gain muscle and get stronger. I have access to all the typical gym equipment. Can you build me a set of 4 routines that I can do weekly? Please add a fun emoji to the title of each routine.
+- How much did I lift the last time I did Bench Press? In lbs please.
+
 ## Configuration
 
 #### Name
@@ -556,44 +561,6 @@ None
           }
         }
       },
-    },
-    "/v1/workouts/count": {
-      "get": {
-        "summary": "Get the total number of workouts on the account",
-        "tags": [
-          "Workouts"
-        ],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "api-key",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The total count of workouts",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "workout_count": {
-                      "type": "integer",
-                      "default": 42,
-                      "description": "The total number of workouts"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     },
     "/v1/workouts/events": {
       "get": {
