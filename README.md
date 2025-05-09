@@ -22,7 +22,7 @@ HevyGPT
 
 #### Description
 
-HevyGPT can access your Hevy workouts and routines.
+Let HevyGPT know your fitness goals and available equipment, and it’ll create a personalised program and upload it directly to your Hevy profile.
 
 #### Instructions
 
@@ -454,8 +454,10 @@ Use the following exercise templates when creating routines:
 
 #### Conversation starters
 
-- What did I lift the last time I did bench press?
 - I want to gain muscle and build strength! Build be a 4 day split
+- When was the last time I did bench press?
+- Build me 4 dumbbell only routines
+- I'd like a full body routine, only bodyweight exercises
 
 #### Capabilities
 
