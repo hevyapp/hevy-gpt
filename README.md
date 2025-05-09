@@ -6,6 +6,7 @@ This repo holds the configuration for [HevyGPT](https://chatgpt.com/g/g-681ca809
 * Passing the exercise list as a file seems to break the GPTs ability to make API calls. Having the exercise list in the description fixed that.
 * The API Key has to be passed as a url query parameter. ChatGPT isn’t able to insert variable values into HTTP headers.
 * If the GPT is doing weird things with the API you can constrain its behaviour by modifying the OpenAPI spec. For example it was passing a superset_id of 0 for all exercises when creating a routine. To fix that I modified the spec to use type `enum: [null]`.
+* It seems to perform better if there are fewer exercises to choose from. I've reduced the exercise library to just 100 exercises.
 
 ## Configuration
 
