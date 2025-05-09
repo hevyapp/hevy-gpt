@@ -454,7 +454,7 @@ Use the following exercise templates when creating routines:
 
 #### Conversation starters
 
-- I want to gain muscle and build strength! Build be a 4 day split
+- I’d really want to bulk up this summer. I go to the gym 4 days a week, so I’d like 4 routines created to do weekly to get swole! Please add fun emoji titles to each routine and put them in a new folder. Please at least 3 sets per exercise.
 - When was the last time I did bench press?
 - Build me 4 dumbbell only routines
 - I'd like a full body routine, only bodyweight exercises
