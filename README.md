@@ -26,7 +26,12 @@ Let HevyGPT know your fitness goals and available equipment, and it’ll create 
 
 #### Instructions
 
+You build workout plans. In Hevy a workout plan is n routines in a folder.
+
 Ask the user to provide their Hevy API Key from https://hevy.com/settings?developer at the start. Use it as the api-key http header for all requests to api.hevyapp.com.
+
+Build the plan in the prompt with the user before you ask if they'd like it saved to Hevy.
+
 Use the following exercise templates when creating routines:
 
 ```
@@ -552,122 +557,22 @@ None
         }
       },
     },
-    "/v1/workouts/events": {
-      "get": {
-        "summary": "Retrieve a paged list of workout events (updates or deletes) since a given date. Events are ordered from newest to oldest. The intention is to allow clients to keep their local cache of workouts up to date without having to fetch the entire list of workouts.",
-        "tags": [
-          "Workouts"
-        ],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "api-key",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
-          },
-          {
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "integer",
-              "default": 1
-            },
-            "description": "Page number (Must be 1 or greater)"
-          },
-          {
-            "in": "query",
-            "name": "pageSize",
-            "schema": {
-              "type": "integer",
-              "default": 5
-            },
-            "description": "Number of items on the requested page (Max 10)"
-          },
-          {
-            "in": "query",
-            "name": "since",
-            "schema": {
-              "type": "string",
-              "default": "1970-01-01T00:00:00Z"
-            }
-          }
-        ],
-        "description": "Returns a paginated array of workout events, indicating updates or deletions.",
-        "responses": {
-          "200": {
-            "description": "A paginated list of workout events",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaginatedWorkoutEvents"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/v1/workouts/{workoutId}": {
-      "get": {
-        "tags": [
-          "Workouts"
-        ],
-        "summary": "Get a single workout’s complete details by the workoutId",
-        "parameters": [
-          {
-            "in": "header",
-            "name": "api-key",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
-          },
-          {
-            "name": "workoutId",
-            "in": "path",
-            "description": "The id of the workout",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Workout"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Workout not found"
-          }
-        }
-      },
-    },
     "/v1/routines": {
       "get": {
+        "operationId": "get-routines",
         "summary": "Get a paginated list of routines",
         "tags": [
           "Routines"
         ],
         "parameters": [
           {
-            "in": "header",
-            "name": "api-key",
+            "in": "query",
+            "name": "apiKey",
+            "required": true,
+            "description": "Your Hevy API key.",
             "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
+              "type": "string"
+            }
           },
           {
             "in": "query",
@@ -802,19 +707,20 @@ None
     },
     "/v1/routines/{routineId}": {
       "get": {
+        "operationId": "get-routine",
         "summary": "Get a routine by its Id",
         "tags": [
           "Routines"
         ],
         "parameters": [
           {
-            "in": "header",
-            "name": "api-key",
+            "in": "query",
+            "name": "apiKey",
+            "required": true,
+            "description": "Your Hevy API key.",
             "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
+              "type": "string"
+            }
           },
           {
             "in": "path",
@@ -857,116 +763,6 @@ None
           }
         }
       },
-    },
-    "/v1/exercise_templates": {
-      "get": {
-        "summary": "Get a paginated list of exercise templates available on the account.",
-        "tags": [
-          "ExerciseTemplates"
-        ],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "api-key",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
-          },
-          {
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "integer",
-              "default": 1
-            },
-            "description": "Page number (Must be 1 or greater)"
-          },
-          {
-            "in": "query",
-            "name": "pageSize",
-            "schema": {
-              "type": "integer",
-              "default": 5
-            },
-            "description": "Number of items on the requested page (Max 100)"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A paginated list of exercise templates",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "page": {
-                      "type": "integer",
-                      "default": 1,
-                      "description": "Current page number"
-                    },
-                    "page_count": {
-                      "type": "integer",
-                      "default": 5,
-                      "description": "Total number of pages"
-                    },
-                    "exercise_templates": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/ExerciseTemplate"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid page size"
-          }
-        }
-      }
-    },
-    "/v1/exercise_templates/{exerciseTemplateId}": {
-      "get": {
-        "tags": [
-          "ExerciseTemplates"
-        ],
-        "summary": "Get a single exercise template by id.",
-        "parameters": [
-          {
-            "in": "header",
-            "name": "api-key",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
-          },
-          {
-            "name": "exerciseTemplateId",
-            "in": "path",
-            "description": "The id of the exercise template",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ExerciseTemplate"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Exercise template not found"
-          }
-        }
-      }
     },
     "/v1/routine_folders": {
       "get": {
@@ -1102,6 +898,7 @@ None
     },
     "/v1/routine_folders/{folderId}": {
       "get": {
+        "operationId": "get-folder",
         "tags": [
           "RoutineFolders"
         ],
