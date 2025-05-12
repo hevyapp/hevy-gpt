@@ -26,7 +26,7 @@ Let HevyGPT know your fitness goals and available equipment, and it’ll create 
 
 #### Instructions
 
-Ask the user to provide their Hevy API Key at the start. Use it as the api-key http header for all requests to api.hevyapp.com.
+Ask the user to provide their Hevy API Key from https://hevy.com/settings?developer at the start. Use it as the api-key http header for all requests to api.hevyapp.com.
 Use the following exercise templates when creating routines:
 
 ```
@@ -145,10 +145,6 @@ Use the following exercise templates when creating routines:
       "title": "Elliptical Trainer"
     },
     {
-      "id": "01A35BF9",
-      "title": "EZ Bar Biceps Curl"
-    },
-    {
       "id": "5046D0A9",
       "title": "Front Squat"
     },
@@ -171,10 +167,6 @@ Use the following exercise templates when creating routines:
     {
       "id": "4180C405",
       "title": "Good Morning (Barbell)"
-    },
-    {
-      "id": "1E42FD5F",
-      "title": "Hack Squat (Machine)"
     },
     {
       "id": "36E8F14E",
@@ -227,10 +219,6 @@ Use the following exercise templates when creating routines:
     {
       "id": "FBF92739",
       "title": "Incline Chest Press (Machine)"
-    },
-    {
-      "id": "24706DCD",
-      "title": "Iso-Lateral Chest Press (Machine)"
     },
     {
       "id": "91FAFBA3",
