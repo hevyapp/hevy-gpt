@@ -30,8 +30,6 @@ You build gym workout plans. In Hevy a workout plan is n routines in a folder.
 
 Build the plan in the prompt with the user before you ask if they'd like it saved to Hevy.
 
-If they'd like it saved to Hevy, ask for their Hevy API Key from https://hevy.com/settings?developer.
-
 Use these exercise templates when creating routines:
 
 {
@@ -474,16 +472,16 @@ None
   },
   "servers": [
     {
-      "url": "https://api.hevyapp.com"
+      "url": "https://hevy.com"
     }
   ],
   "paths": {
-    "/v1/workouts": {
+    "/api/v1/workouts": {
       "get": {
         "operationId": "get-workouts",
         "security": [
           {
-            "ApiKeyAuth": []
+            "oauth2": ["read:workouts"]
           }
         ],
         "summary": "Get a paginated list of workouts",
@@ -491,15 +489,6 @@ None
           "Workouts"
         ],
         "parameters": [
-          {
-            "in": "query",
-            "name": "apiKey",
-            "required": true,
-            "description": "Your Hevy API key. You can get one at https://hevy.com/settings?developer.",
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "in": "query",
             "name": "page",
@@ -554,23 +543,19 @@ None
         }
       },
     },
-    "/v1/routines": {
+    "/api/v1/routines": {
       "get": {
         "operationId": "get-routines",
+        "security": [
+          {
+            "oauth2": ["read:routines"]
+          }
+        ],
         "summary": "Get a paginated list of routines",
         "tags": [
           "Routines"
         ],
         "parameters": [
-          {
-            "in": "query",
-            "name": "apiKey",
-            "required": true,
-            "description": "Your Hevy API key.",
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "in": "query",
             "name": "page",
@@ -628,24 +613,14 @@ None
         "operationId": "post-routine",
         "security": [
           {
-            "ApiKeyAuth": []
+            "oauth2": ["write:routines"]
           }
         ],
         "summary": "Create a new routine",
         "tags": [
           "Routines"
         ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "apiKey",
-            "required": true,
-            "description": "Your Hevy API key. You can get one at https://hevy.com/settings?developer.",
-            "schema": {
-              "type": "string"
-            }
-          },
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
@@ -702,23 +677,19 @@ None
         }
       }
     },
-    "/v1/routines/{routineId}": {
+    "/api/v1/routines/{routineId}": {
       "get": {
         "operationId": "get-routine",
+        "security": [
+          {
+            "oauth2": ["read:routines"]
+          }
+        ],
         "summary": "Get a routine by its Id",
         "tags": [
           "Routines"
         ],
         "parameters": [
-          {
-            "in": "query",
-            "name": "apiKey",
-            "required": true,
-            "description": "Your Hevy API key.",
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "in": "path",
             "name": "routineId",
@@ -761,23 +732,19 @@ None
         }
       },
     },
-    "/v1/routine_folders": {
+    "/api/v1/routine_folders": {
       "get": {
         "summary": "Get a paginated list of routine folders available on the account.",
         "tags": [
           "RoutineFolders"
         ],
         "operationId": "get-routine-folders",
-        "parameters": [
+        "security": [
           {
-            "in": "query",
-            "name": "apiKey",
-            "required": true,
-            "description": "Your Hevy API key. You can get one at https://hevy.com/settings?developer.",
-            "schema": {
-              "type": "string"
-            }
-          },
+            "oauth2": ["read:routine_folders"]
+          }
+        ],
+        "parameters": [
           {
             "in": "query",
             "name": "page",
@@ -839,20 +806,10 @@ None
         "operationId": "post-routine-folder",
         "security": [
           {
-            "ApiKeyAuth": []
+            "oauth2": ["write:routine_folders"]
           }
         ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "apiKey",
-            "required": true,
-            "description": "Your Hevy API key. You can get one at https://hevy.com/settings?developer.",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
@@ -893,23 +850,19 @@ None
         }
       }
     },
-    "/v1/routine_folders/{folderId}": {
+    "/api/v1/routine_folders/{folderId}": {
       "get": {
         "operationId": "get-folder",
+        "security": [
+          {
+            "oauth2": ["read:routine_folders"]
+          }
+        ],
         "tags": [
           "RoutineFolders"
         ],
         "summary": "Get a single routine folder by id.",
         "parameters": [
-          {
-            "in": "header",
-            "name": "api-key",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
-          },
           {
             "name": "folderId",
             "in": "path",
@@ -936,13 +889,6 @@ None
     }
   },
   "components": {
-    "securitySchemes": {
-      "ApiKeyAuth": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "api-key"
-      }
-    },
     "schemas": {
       "PostWorkoutsRequestSet": {
         "type": "object",
