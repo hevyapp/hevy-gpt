@@ -32,414 +32,111 @@ Build the plan in the prompt with the user before you ask if they'd like it save
 
 Use these exercise templates when creating routines:
 
-{
-  "exercise_templates": [
-    {
-      "id": "A69FF221",
-      "title": "Arnold Press (Dumbbell)"
-    },
-    {
-      "id": "A05C064D",
-      "title": "Back Extension (Machine)"
-    },
-    {
-      "id": "79D0BB3A",
-      "title": "Bench Press (Barbell)"
-    },
-    {
-      "id": "3601968B",
-      "title": "Bench Press (Dumbbell)"
-    },
-    {
-      "id": "55E6546F",
-      "title": "Bent Over Row (Barbell)"
-    },
-    {
-      "id": "23E92538",
-      "title": "Bent Over Row (Dumbbell)"
-    },
-    {
-      "id": "A5AC6449",
-      "title": "Bicep Curl (Barbell)"
-    },
-    {
-      "id": "37FCC2BB",
-      "title": "Bicep Curl (Dumbbell)"
-    },
-    {
-      "id": "BB792A36",
-      "title": "Burpee"
-    },
-    {
-      "id": "651F844C",
-      "title": "Cable Fly Crossovers"
-    },
-    {
-      "id": "47B9DF13",
-      "title": "Calf Extension (Machine)"
-    },
-    {
-      "id": "6FCD7755",
-      "title": "Chest Dip"
-    },
-    {
-      "id": "12017185",
-      "title": "Chest Fly (Dumbbell)"
-    },
-    {
-      "id": "78683336",
-      "title": "Chest Fly (Machine)"
-    },
-    {
-      "id": "7EB3F7C3",
-      "title": "Chest Press (Machine)"
-    },
-    {
-      "id": "29083183",
-      "title": "Chin Up"
-    },
-    {
-      "id": "724CDE60",
-      "title": "Concentration Curl"
-    },
-    {
-      "id": "DCF3B31B",
-      "title": "Crunch"
-    },
-    {
-      "id": "EB43ADD4",
-      "title": "Crunch (Machine)"
-    },
-    {
-      "id": "C6272009",
-      "title": "Deadlift (Barbell)"
-    },
-    {
-      "id": "5F4E6DD3",
-      "title": "Deadlift (Dumbbell)"
-    },
-    {
-      "id": "DA0F0470",
-      "title": "Decline Bench Press (Barbell)"
-    },
-    {
-      "id": "18487FA7",
-      "title": "Decline Bench Press (Dumbbell)"
-    },
-    {
-      "id": "FAF31231",
-      "title": "Decline Bench Press (Machine)"
-    },
-    {
-      "id": "BC10A922",
-      "title": "Decline Crunch"
-    },
-    {
-      "id": "C43825EA",
-      "title": "Decline Push Up"
-    },
-    {
-      "id": "F1E57334",
-      "title": "Dumbbell Row"
-    },
-    {
-      "id": "3303376C",
-      "title": "Elliptical Trainer"
-    },
-    {
-      "id": "5046D0A9",
-      "title": "Front Squat"
-    },
-    {
-      "id": "CDA23948",
-      "title": "Glute Bridge"
-    },
-    {
-      "id": "CBA02382",
-      "title": "Glute Kickback (Machine)"
-    },
-    {
-      "id": "987234AB",
-      "title": "Glute Kickback on Floor"
-    },
-    {
-      "id": "3D0C7C75",
-      "title": "Goblet Squat"
-    },
-    {
-      "id": "4180C405",
-      "title": "Good Morning (Barbell)"
-    },
-    {
-      "id": "36E8F14E",
-      "title": "Hammer Curl (Cable)"
-    },
-    {
-      "id": "7E3BC8B6",
-      "title": "Hammer Curl (Dumbbell)"
-    },
-    {
-      "id": "08590920",
-      "title": "Hanging Knee Raise"
-    },
-    {
-      "id": "F8356514",
-      "title": "Hanging Leg Raise"
-    },
-    {
-      "id": "F4B4C6EE",
-      "title": "Hip Abduction (Machine)"
-    },
-    {
-      "id": "8BEBFED6",
-      "title": "Hip Adduction (Machine)"
-    },
-    {
-      "id": "92B8C7E1",
-      "title": "Hip Thrust"
-    },
-    {
-      "id": "D57C2EC7",
-      "title": "Hip Thrust (Barbell)"
-    },
-    {
-      "id": "68CE0B9B",
-      "title": "Hip Thrust (Machine)"
-    },
-    {
-      "id": "50DFDFAB",
-      "title": "Incline Bench Press (Barbell)"
-    },
-    {
-      "id": "07B38369",
-      "title": "Incline Bench Press (Dumbbell)"
-    },
-    {
-      "id": "D3E2AB55",
-      "title": "Incline Chest Fly (Dumbbell)"
-    },
-    {
-      "id": "FBF92739",
-      "title": "Incline Chest Press (Machine)"
-    },
-    {
-      "id": "91FAFBA3",
-      "title": "Iso-Lateral Low Row"
-    },
-    {
-      "id": "AA1EB7D8",
-      "title": "Iso-Lateral Row (Machine)"
-    },
-    {
-      "id": "991833C2",
-      "title": "Jumping Jack"
-    },
-    {
-      "id": "5CC07A1F",
-      "title": "Jumping Lunge"
-    },
-    {
-      "id": "040BA2E3",
-      "title": "Jump Rope"
-    },
-    {
-      "id": "F99C211D",
-      "title": "Kettlebell Clean"
-    },
-    {
-      "id": "4E239ED8",
-      "title": "Kettlebell Curl"
-    },
-    {
-      "id": "A127DA73",
-      "title": "Kettlebell Goblet Squat"
-    },
-    {
-      "id": "9B13BA4B",
-      "title": "Kettlebell High Pull"
-    },
-    {
-      "id": "6433CD93",
-      "title": "Kettlebell Shoulder Press"
-    },
-    {
-      "id": "89304423",
-      "title": "Kettlebell Snatch"
-    },
-    {
-      "id": "F8A0FCCA",
-      "title": "Kettlebell Swing"
-    },
-    {
-      "id": "B74A95BB",
-      "title": "Kneeling Push Up"
-    },
-    {
-      "id": "98237BA2",
-      "title": "Knee Raise Parallel Bars"
-    },
-    {
-      "id": "422B08F1",
-      "title": "Lateral Raise (Dumbbell)"
-    },
-    {
-      "id": "D5D0354D",
-      "title": "Lateral Raise (Machine)"
-    },
-    {
-      "id": "6A6C31A5",
-      "title": "Lat Pulldown (Cable)"
-    },
-    {
-      "id": "473CF5B8",
-      "title": "Lat Pulldown (Machine)"
-    },
-    {
-      "id": "C7973E0E",
-      "title": "Leg Press (Machine)"
-    },
-    {
-      "id": "0482DA98",
-      "title": "Leg Raise Parallel Bars"
-    },
-    {
-      "id": "5E1A7777",
-      "title": "Lunge"
-    },
-    {
-      "id": "B537D09F",
-      "title": "Lunge (Dumbbell)"
-    },
-    {
-      "id": "7B8D84E8",
-      "title": "Overhead Press (Barbell)"
-    },
-    {
-      "id": "6AC96645",
-      "title": "Overhead Press (Dumbbell)"
-    },
-    {
-      "id": "018ADC12",
-      "title": "Pendlay Row (Barbell)"
-    },
-    {
-      "id": "0EFE8162",
-      "title": "Pike Pushup"
-    },
-    {
-      "id": "C6C9B8A0",
-      "title": "Plank"
-    },
-    {
-      "id": "1B2B1E7C",
-      "title": "Pull Up"
-    },
-    {
-      "id": "392887AA",
-      "title": "Push Up"
-    },
-    {
-      "id": "FE389074",
-      "title": "Rack Pull"
-    },
-    {
-      "id": "2B4B7310",
-      "title": "Romanian Deadlift (Barbell)"
-    },
-    {
-      "id": "72CFFAD5",
-      "title": "Romanian Deadlift (Dumbbell)"
-    },
-    {
-      "id": "0222DB42",
-      "title": "Rowing Machine"
-    },
-    {
-      "id": "062AB91A",
-      "title": "Seated Calf Raise"
-    },
-    {
-      "id": "11A123F3",
-      "title": "Seated Leg Curl (Machine)"
-    },
-    {
-      "id": "91AF29E0",
-      "title": "Seated Overhead Press (Barbell)"
-    },
-    {
-      "id": "9930DF71",
-      "title": "Seated Overhead Press (Dumbbell)"
-    },
-    {
-      "id": "1DF4A847",
-      "title": "Seated Row (Machine)"
-    },
-    {
-      "id": "9237BAD1",
-      "title": "Seated Shoulder Press (Machine)"
-    },
-    {
-      "id": "878CD1D0",
-      "title": "Shoulder Press (Dumbbell)"
-    },
-    {
-      "id": "ABEC557F",
-      "title": "Shrug (Dumbbell)"
-    },
-    {
-      "id": "022DF610",
-      "title": "Sit Up"
-    },
-    {
-      "id": "68F8A292",
-      "title": "Skullcrusher (Dumbbell)"
-    },
-    {
-      "id": "D04AC939",
-      "title": "Squat (Barbell)"
-    },
-    {
-      "id": "9694DA61",
-      "title": "Squat (Bodyweight)"
-    },
-    {
-      "id": "06745E58",
-      "title": "Standing Calf Raise"
-    },
-    {
-      "id": "073032BB",
-      "title": "Standing Military Press (Barbell)"
-    },
-    {
-      "id": "243710DE",
-      "title": "Treadmill"
-    },
-    {
-      "id": "28BB4A95",
-      "title": "Triceps Dip"
-    },
-    {
-      "id": "21310F5F",
-      "title": "Triceps Extension (Cable)"
-    },
-    {
-      "id": "3765684D",
-      "title": "Triceps Extension (Dumbbell)"
-    },
-    {
-      "id": "6127A3AD",
-      "title": "Triceps Kickback (Dumbbell)"
-    },
-    {
-      "id": "93A552C6",
-      "title": "Triceps Pushdown"
-    },
-    {
-      "id": "94B7239B",
-      "title": "Triceps Rope Pushdown"
-    }
-  ]
-}
+```
+[
+    {id: "A69FF221", title: "Arnold Press (Dumbbell)"},
+    {id: "A05C064D", title: "Back Extension (Machine)"},
+    {id: "79D0BB3A", title: "Bench Press (Barbell)"},
+    {id: "3601968B", title: "Bench Press (Dumbbell)"},
+    {id: "55E6546F", title: "Bent Over Row (Barbell)"},
+    {id: "23E92538", title: "Bent Over Row (Dumbbell)"},
+    {id: "A5AC6449", title: "Bicep Curl (Barbell)"},
+    {id: "37FCC2BB", title: "Bicep Curl (Dumbbell)"},
+    {id: "BB792A36", title: "Burpee"},
+    {id: "651F844C", title: "Cable Fly Crossovers"},
+    {id: "47B9DF13", title: "Calf Extension (Machine)"},
+    {id: "6FCD7755", title: "Chest Dip"},
+    {id: "12017185", title: "Chest Fly (Dumbbell)"},
+    {id: "78683336", title: "Chest Fly (Machine)"},
+    {id: "7EB3F7C3", title: "Chest Press (Machine)"},
+    {id: "29083183", title: "Chin Up"},
+    {id: "724CDE60", title: "Concentration Curl"},
+    {id: "DCF3B31B", title: "Crunch"},
+    {id: "EB43ADD4", title: "Crunch (Machine)"},
+    {id: "C6272009", title: "Deadlift (Barbell)"},
+    {id: "5F4E6DD3", title: "Deadlift (Dumbbell)"},
+    {id: "DA0F0470", title: "Decline Bench Press (Barbell)"},
+    {id: "18487FA7", title: "Decline Bench Press (Dumbbell)"},
+    {id: "FAF31231", title: "Decline Bench Press (Machine)"},
+    {id: "BC10A922", title: "Decline Crunch"},
+    {id: "C43825EA", title: "Decline Push Up"},
+    {id: "F1E57334", title: "Dumbbell Row"},
+    {id: "3303376C", title: "Elliptical Trainer"},
+    {id: "5046D0A9", title: "Front Squat"},
+    {id: "CDA23948", title: "Glute Bridge"},
+    {id: "CBA02382", title: "Glute Kickback (Machine)"},
+    {id: "987234AB", title: "Glute Kickback on Floor"},
+    {id: "3D0C7C75", title: "Goblet Squat"},
+    {id: "4180C405", title: "Good Morning (Barbell)"},
+    {id: "36E8F14E", title: "Hammer Curl (Cable)"},
+    {id: "7E3BC8B6", title: "Hammer Curl (Dumbbell)"},
+    {id: "08590920", title: "Hanging Knee Raise"},
+    {id: "F8356514", title: "Hanging Leg Raise"},
+    {id: "F4B4C6EE", title: "Hip Abduction (Machine)"},
+    {id: "8BEBFED6", title: "Hip Adduction (Machine)"},
+    {id: "92B8C7E1", title: "Hip Thrust"},
+    {id: "D57C2EC7", title: "Hip Thrust (Barbell)"},
+    {id: "68CE0B9B", title: "Hip Thrust (Machine)"},
+    {id: "50DFDFAB", title: "Incline Bench Press (Barbell)"},
+    {id: "07B38369", title: "Incline Bench Press (Dumbbell)"},
+    {id: "D3E2AB55", title: "Incline Chest Fly (Dumbbell)"},
+    {id: "FBF92739", title: "Incline Chest Press (Machine)"},
+    {id: "91FAFBA3", title: "Iso-Lateral Low Row"},
+    {id: "AA1EB7D8", title: "Iso-Lateral Row (Machine)"},
+    {id: "991833C2", title: "Jumping Jack"},
+    {id: "5CC07A1F", title: "Jumping Lunge"},
+    {id: "040BA2E3", title: "Jump Rope"},
+    {id: "F99C211D", title: "Kettlebell Clean"},
+    {id: "4E239ED8", title: "Kettlebell Curl"},
+    {id: "A127DA73", title: "Kettlebell Goblet Squat"},
+    {id: "9B13BA4B", title: "Kettlebell High Pull"},
+    {id: "6433CD93", title: "Kettlebell Shoulder Press"},
+    {id: "89304423", title: "Kettlebell Snatch"},
+    {id: "F8A0FCCA", title: "Kettlebell Swing"},
+    {id: "B74A95BB", title: "Kneeling Push Up"},
+    {id: "98237BA2", title: "Knee Raise Parallel Bars"},
+    {id: "422B08F1", title: "Lateral Raise (Dumbbell)"},
+    {id: "D5D0354D", title: "Lateral Raise (Machine)"},
+    {id: "6A6C31A5", title: "Lat Pulldown (Cable)"},
+    {id: "473CF5B8", title: "Lat Pulldown (Machine)"},
+    {id: "C7973E0E", title: "Leg Press (Machine)"},
+    {id: "0482DA98", title: "Leg Raise Parallel Bars"},
+    {id: "5E1A7777", title: "Lunge"},
+    {id: "B537D09F", title: "Lunge (Dumbbell)"},
+    {id: "7B8D84E8", title: "Overhead Press (Barbell)"},
+    {id: "6AC96645", title: "Overhead Press (Dumbbell)"},
+    {id: "018ADC12", title: "Pendlay Row (Barbell)"},
+    {id: "0EFE8162", title: "Pike Pushup"},
+    {id: "C6C9B8A0", title: "Plank"},
+    {id: "1B2B1E7C", title: "Pull Up"},
+    {id: "392887AA", title: "Push Up"},
+    {id: "FE389074", title: "Rack Pull"},
+    {id: "2B4B7310", title: "Romanian Deadlift (Barbell)"},
+    {id: "72CFFAD5", title: "Romanian Deadlift (Dumbbell)"},
+    {id: "0222DB42", title: "Rowing Machine"},
+    {id: "062AB91A", title: "Seated Calf Raise"},
+    {id: "11A123F3", title: "Seated Leg Curl (Machine)"},
+    {id: "91AF29E0", title: "Seated Overhead Press (Barbell)"},
+    {id: "9930DF71", title: "Seated Overhead Press (Dumbbell)"},
+    {id: "1DF4A847", title: "Seated Row (Machine)"},
+    {id: "9237BAD1", title: "Seated Shoulder Press (Machine)"},
+    {id: "878CD1D0", title: "Shoulder Press (Dumbbell)"},
+    {id: "ABEC557F", title: "Shrug (Dumbbell)"},
+    {id: "022DF610", title: "Sit Up"},
+    {id: "68F8A292", title: "Skullcrusher (Dumbbell)"},
+    {id: "D04AC939", title: "Squat (Barbell)"},
+    {id: "9694DA61", title: "Squat (Bodyweight)"},
+    {id: "06745E58", title: "Standing Calf Raise"},
+    {id: "073032BB", title: "Standing Military Press (Barbell)"},
+    {id: "243710DE", title: "Treadmill"},
+    {id: "28BB4A95", title: "Triceps Dip"},
+    {id: "21310F5F", title: "Triceps Extension (Cable)"},
+    {id: "3765684D", title: "Triceps Extension (Dumbbell)"},
+    {id: "6127A3AD", title: "Triceps Kickback (Dumbbell)"},
+    {id: "93A552C6", title: "Triceps Pushdown"},
+    {id: "94B7239B", title: "Triceps Rope Pushdown"}
+]
+```
 
 #### Conversation starters
 
