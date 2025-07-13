@@ -1,6 +1,6 @@
 # HevyGPT
 
-This repo holds the configuration for [HevyGPT](https://chatgpt.com/g/g-681ca809463c8191b57db9900b9926cc-hevygpt). Trying to improve a Custom GPT is finicky to say the least. This repo is meant to be a “master” copy of the last stable configuration. This way we always have a state to go back to if we break something while tinkering with the configs.
+This repo holds the configuration for [HevyGPT](https://chatgpt.com/g/g-68278fb711f881919f635175ace543f9-hevy-gym-workout-planner). Trying to improve a Custom GPT is finicky to say the least. This repo is meant to be a “master” copy of the last stable configuration. This way we always have a state to go back to if we break something while tinkering with the configs.
 
 ## Learnings
 
