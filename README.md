@@ -374,61 +374,6 @@ None
         }
       }
     },
-    "/api/v1/routines/{routineId}": {
-      "get": {
-        "operationId": "get-routine",
-        "security": [
-          {
-            "oauth2": ["read:routines"]
-          }
-        ],
-        "summary": "Get a routine by its Id",
-        "tags": [
-          "Routines"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "routineId",
-            "description": "The id of the routine",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The routine with the provided id",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "routine": {
-                      "$ref": "#/components/schemas/Routine"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request body",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "description": "Error message"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-    },
     "/api/v1/routine_folders": {
       "get": {
         "summary": "Get a paginated list of routine folders available on the account.",
@@ -547,39 +492,50 @@ None
         }
       }
     },
-    "/api/v1/routine_folders/{folderId}": {
+    "/v1/exercise_history/{exerciseTemplateId}": {
       "get": {
-        "operationId": "get-folder",
+        "summary": "Get exercise history for a specific exercise template",
+        "operationId": "get-exercise-history",
         "security": [
           {
-            "oauth2": ["read:routine_folders"]
+            "oauth2": ["read:exercise_history"]
           }
         ],
         "tags": [
-          "RoutineFolders"
+          "ExerciseHistory"
         ],
-        "summary": "Get a single routine folder by id.",
         "parameters": [
           {
-            "name": "folderId",
             "in": "path",
-            "description": "The id of the routine folder",
-            "required": true
+            "name": "exerciseTemplateId",
+            "description": "The id of the exercise template",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "A list of exercise history entries",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RoutineFolder"
+                  "type": "object",
+                  "properties": {
+                    "exercise_history": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ExerciseHistoryEntry"
+                      }
+                    }
+                  }
                 }
               }
             }
           },
-          "404": {
-            "description": "Routine folder not found"
+          "400": {
+            "description": "Invalid request parameters"
           }
         }
       }
@@ -948,6 +904,77 @@ None
                 "example": "Push Pull 🏋️‍♂️"
               }
             }
+          }
+        }
+      },
+      "ExerciseHistoryEntry": {
+        "type": "object",
+        "properties": {
+          "workout_id": {
+            "type": "string",
+            "description": "The workout ID",
+            "example": "b459cba5-cd6d-463c-abd6-54f8eafcadcb"
+          },
+          "workout_title": {
+            "type": "string",
+            "description": "The workout title",
+            "example": "Morning Workout 💪"
+          },
+          "workout_start_time": {
+            "type": "string",
+            "description": "ISO 8601 timestamp of when the workout was recorded to have started.",
+            "example": "2024-01-01T12:00:00Z"
+          },
+          "workout_end_time": {
+            "type": "string",
+            "description": "ISO 8601 timestamp of when the workout was recorded to have ended.",
+            "example": "2024-01-01T13:00:00Z"
+          },
+          "exercise_template_id": {
+            "type": "string",
+            "description": "The exercise template ID",
+            "example": "D04AC939"
+          },
+          "weight_kg": {
+            "type": "number",
+            "nullable": true,
+            "description": "The weight in kilograms",
+            "example": 100
+          },
+          "reps": {
+            "type": "integer",
+            "nullable": true,
+            "description": "The number of repetitions",
+            "example": 10
+          },
+          "distance_meters": {
+            "type": "integer",
+            "nullable": true,
+            "description": "The distance in meters",
+            "example": null
+          },
+          "duration_seconds": {
+            "type": "integer",
+            "nullable": true,
+            "description": "The duration in seconds",
+            "example": null
+          },
+          "rpe": {
+            "type": "number",
+            "nullable": true,
+            "description": "The Rating of Perceived Exertion",
+            "example": 8.5
+          },
+          "custom_metric": {
+            "type": "number",
+            "nullable": true,
+            "description": "A custom metric for the set",
+            "example": null
+          },
+          "set_type": {
+            "type": "string",
+            "description": "The type of set (warmup, normal, failure, dropset)",
+            "example": "normal"
           }
         }
       },
