@@ -517,6 +517,28 @@ None
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "in": "query",
+            "name": "start_date",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "Optional start date for filtering exercise history (ISO 8601 format)",
+            "example": "2024-01-01T00:00:00Z",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "end_date",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "Optional end date for filtering exercise history (ISO 8601 format)",
+            "example": "2024-12-31T23:59:59Z",
+            "required": false
           }
         ],
         "responses": {
