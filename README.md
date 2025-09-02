@@ -800,6 +800,14 @@ OAuth
                 "description": "Additional notes for the routine.",
                 "example": "Focus on form over weight. Remember to stretch."
               },
+              "source": {
+                "type": "string",
+                "description": "The source of the routine.",
+                "enum": [
+                  "chatgpt"
+                ],
+                "example": "chatgpt"
+              },
               "exercises": {
                 "type": "array",
                 "items": {
